@@ -1,0 +1,8 @@
+[   
+    {
+        "cinema" : "",
+        "movie": [{"Title": "Sp","Seat" : {"position": ["A",1], "show-time": "", "availabletiy": ""}}],
+        "schedule": ""
+    }
+      
+]
