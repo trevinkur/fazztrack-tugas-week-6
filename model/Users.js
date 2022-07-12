@@ -78,7 +78,7 @@ module.exports = {
                        })
                       }
                       let oldData = {}
-                    if(req.body.profile_pitcure) {
+                    if(req.file) {
                         const oldPitcure = result[0].profile_pitcure
                         fs.unlinkSync("./public/" + oldPitcure)
 
