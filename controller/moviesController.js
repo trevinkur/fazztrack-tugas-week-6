@@ -9,7 +9,7 @@ module.exports = {
             const result = await Movies.get(req,res)
             return res.send(result)
         } catch(err) {
-            res.status(500).send(err)
+            return res.status(err.status).send(err)
         }
     },
 
@@ -20,7 +20,7 @@ module.exports = {
             const result = await Movies.getById(req,res)
             return res.send(result)
         } catch(err) {
-            res.status(500).send(err)
+            return res.status(err.status).send(err)
         }
     },
 
@@ -29,7 +29,7 @@ module.exports = {
     addMovies: async function(req,res) {
             console.log(req.file)
             try {
-                validasi.img(req,res)
+                await validasi.img(req,res)
                 const reqModifier = {
                     ...req,
                     body: {...req.body,cover: req.file.filename}
@@ -37,7 +37,7 @@ module.exports = {
                 const result = await Movies.add(reqModifier,res)
                 return res.send(result)
             } catch(err) {
-                res.status(404).send(err)
+                return res.status(err.status).send(err)
             }
     },
     
@@ -48,7 +48,7 @@ module.exports = {
             const result = await Movies.update(req,res)
             return res.send(result)
         } catch(err) {
-            res.status(404).send(err)
+            return res.status(err.status).send(err)
         }
     },
 
@@ -57,7 +57,7 @@ module.exports = {
             const result = await Movies.removeById(req,res)
             return res.send(result)
         } catch(err) {
-            res.status(404).send(err)
+            return res.status(err.status).send(err)
         }
     },
 }
